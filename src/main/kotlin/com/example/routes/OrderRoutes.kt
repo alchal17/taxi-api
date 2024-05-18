@@ -18,5 +18,6 @@ fun Route.orderRoutes() {
         get("/all") {
             call.respond(OrderDao.getAll())
         }
+
     }
 }

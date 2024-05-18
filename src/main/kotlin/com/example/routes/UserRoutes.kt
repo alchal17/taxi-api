@@ -46,5 +46,8 @@ fun Route.driverRoutes() {
         get("/all") {
             call.respond(DriverDao.getAll())
         }
+        get("/all/drivers") {
+            call.respond(DriverDao.getAll())
+        }
     }
 }

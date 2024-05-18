@@ -29,7 +29,6 @@ WORKDIR /app
 COPY --from=build /app/build/libs/*.jar /app/app.jar
 
 # Expose the port your application listens on
-EXPOSE 8080
 
 # Command to run the application when the container starts
 CMD ["java", "-jar", "app.jar"]
