@@ -46,4 +46,6 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
     implementation("com.h2database:h2:$h2_version")
     implementation("org.postgresql:postgresql:42.2.5")
+
+    implementation("io.ktor:ktor-server-cors:$ktor_version")
 }

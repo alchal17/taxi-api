@@ -32,11 +32,12 @@ fun Route.driverRoutes() {
                 call.respond(if (DriverDao.isDriverExists(driverName)) HttpStatusCode.BadRequest else HttpStatusCode.OK)
             }
         }
-        get("/login/username={username}/password={password}") {
-            val userName = call.parameters["username"]
+        get("/login/email={email}/password={password}") {
+            val email = call.parameters["email"]
             val password = call.parameters["password"]
-            if (userName != null && password != null) {
-                if (DriverDao.isDriverExists(username = userName, password = password)) {
+            println("${email}, $password")
+            if (email != null && password != null) {
+                if (DriverDao.isDriverExists(email = email, password = password)) {
                     call.respond("success")
                 } else {
                     call.respond("fail")
@@ -44,9 +45,6 @@ fun Route.driverRoutes() {
             }
         }
         get("/all") {
-            call.respond(DriverDao.getAll())
-        }
-        get("/all/drivers") {
             call.respond(DriverDao.getAll())
         }
     }

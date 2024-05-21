@@ -4,7 +4,6 @@ import com.example.models.Driver
 import com.example.models.Drivers
 import com.example.models.Languages
 import org.jetbrains.exposed.sql.*
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.transactions.transaction
 
 object DriverDao : Dao<Driver>() {
@@ -42,9 +41,9 @@ object DriverDao : Dao<Driver>() {
         }
     }
 
-    fun isDriverExists(username: String, password: String): Boolean {
+    fun isDriverExists(email: String, password: String): Boolean {
         return transaction {
-            Drivers.select { (Drivers.username eq username) and (Drivers.password eq password) }.count() > 0
+            Drivers.select { (Drivers.email eq email) and (Drivers.password eq password) }.count() > 0
         }
     }
 

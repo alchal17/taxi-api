@@ -28,7 +28,5 @@ WORKDIR /app
 # Copy the compiled JAR file from the build stage
 COPY --from=build /app/build/libs/*.jar /app/app.jar
 
-# Expose the port your application listens on
-
 # Command to run the application when the container starts
 CMD ["java", "-jar", "app.jar"]
